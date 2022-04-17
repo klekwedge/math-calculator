@@ -23,6 +23,8 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="msapplication-TileImage" content="assets/favicon/ms-icon-144x144.png">
   <meta name="theme-color" content="#ffffff">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet" />
   <title>Калькулятор</title>
 </head>
 
@@ -59,10 +61,20 @@
           <div>
             <button class="calc__button"></button>
             <button class="calc__button" data-value>0</button>
-            <button class="calc__button" data-operation>,</button>
+            <button class="calc__button" data-operation="float">,</button>
             <button class="calc__button" data-operation="equals">=</button>
           </div>
         </div>
+
+        <div class="overlay">
+          <div class="modal">
+            <h3 class="modal__content"></h3>
+
+            <button class="modal__close"> <span class="material-icons-outlined">
+                close </span></button>
+          </div>
+        </div>
+
       </div>
     </main>
 

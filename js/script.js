@@ -1,5 +1,20 @@
 "use strict";
 
+const overlay = document.querySelector(".overlay"),
+  modal = document.querySelector(".modal"),
+  modalContent = document.querySelector(".modal__content"),
+  modalClose = document.querySelector(".modal__close");
+
+modalClose.addEventListener("click", () => {
+  overlay.style.display = "none";
+});
+
+overlay.addEventListener("click", (e) => {
+  if (event.target !== modal) {
+    overlay.style.display = "none";
+  }
+});
+
 const result = document.querySelector(".calc__result");
 
 let num1;
@@ -15,18 +30,23 @@ const operationButtons = document.querySelectorAll("[data-operation]"),
 
 function checkResultLength() {
   if (result.textContent.length > resultMaxLength) {
+    overlay.style.display = "block";
     if (+result.textContent % 1 === 0) {
-      alert("Внимание, слишком большое число!");
+      modalContent.textContent = "Внимание, слишком большое число!";
     } else {
-      alert("Округление");
+      modalContent.textContent =
+        `Дробная часть числа будет состоять не более, чем из ${resultMaxLength - 2} знаков`;
     }
-    console.log(result.textContent.substring(0, resultMaxLength));
     result.textContent = result.textContent.substring(0, resultMaxLength);
   }
 }
 
 function performNewOperation(dataAtribute) {
-  if (dataAtribute !== "clear" && dataAtribute !== "equals") {
+  if (
+    dataAtribute !== "clear" &&
+    dataAtribute !== "equals" &&
+    dataAtribute !== "float"
+  ) {
     num1 = +result.textContent;
     flag = false;
     typeTransaction = dataAtribute;
@@ -34,6 +54,10 @@ function performNewOperation(dataAtribute) {
     result.textContent = "0";
     num1 = 0;
     num2 = 0;
+  } else if (dataAtribute === "float") {
+    if (result.textContent.indexOf(".") === -1) {
+      result.textContent += ".";
+    }
   } else if (dataAtribute === "equals") {
     num2 = +result.textContent;
     switch (typeTransaction) {
@@ -66,7 +90,7 @@ operationButtons.forEach((valueButton) => {
 
 valueButtons.forEach((valueButton) => {
   valueButton.addEventListener("click", () => {
-    if (result.textContent[0] === "0") {
+    if (result.textContent[0] === "0" && result.textContent[1] !== ".") {
       result.textContent = "";
     }
 

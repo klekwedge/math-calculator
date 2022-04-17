@@ -229,7 +229,7 @@ body {
 }
 
 .calc__body button:hover {
-  background-color: #F9F9F9;
+  background-color: #f9f9f9;
   color: #2f2f2f;
 }
 
@@ -240,6 +240,54 @@ body {
 .calc__body button:nth-child(4n):hover {
   background-color: #ffb140;
   color: white;
+}
+
+/*-------------------------------------------------------------*/
+/*-----Modal---------------------------------------------------*/
+/*-------------------------------------------------------------*/
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal {
+  max-width: 600px;
+  height: 200px;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  background-color: whitesmoke;
+  -webkit-box-shadow: 0 0 15px 1px black;
+          box-shadow: 0 0 15px 1px black;
+  border-radius: 20px;
+}
+
+.modal__content {
+  font-size: 40px;
+  color: black;
+  text-align: center;
+}
+
+.modal__close span {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: transparent;
+  font-size: 30px;
+}
+
+.material-icons-outlined {
+  color: black;
 }
 
 /*-------------------------------------------------------------*/
