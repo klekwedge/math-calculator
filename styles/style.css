@@ -1,0 +1,273 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+/*Обнуление*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: 400;
+}
+
+/*--------------------------------------------------------*/
+/*-------------------------------------------------------------*/
+/*-----The Foundation------------------------------------------*/
+/*-------------------------------------------------------------*/
+html {
+  scroll-behavior: smooth;
+}
+
+input {
+  margin: 0px;
+  border: 0px;
+  margin: 0px;
+  outline: none;
+}
+
+li {
+  list-style-type: none;
+}
+
+ul {
+  padding-left: 0;
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+body {
+  font-size: 16px;
+  background-color: #f9f9f9;
+}
+
+/*-------------------------------------------------------------*/
+/*-----Technical classes---------------------------------------*/
+/*-------------------------------------------------------------*/
+._wrapper {
+  min-height: 100%;
+  overflow: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.calc {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+/*-------------------------------------------------------------*/
+/*-----Technical classes---------------------------------------*/
+/*-------------------------------------------------------------*/
+._container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 10px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+/*-------------------------------------------------------------*/
+/*-----Calc----------------------------------------------------*/
+/*-------------------------------------------------------------*/
+.calc {
+  padding: 100px;
+}
+
+.calc__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 460px;
+  border-radius: 10px;
+  background-color: #000000;
+}
+
+.calc__result {
+  color: white;
+  padding: 40px;
+  font-size: 50px;
+  text-align: right;
+}
+
+.calc__body {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 40px 0px;
+  margin: 0 auto;
+  padding: 20px 40px 30px 40px;
+  border: 5px;
+}
+
+.calc__body div {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 0px 20px;
+}
+
+.calc__body button {
+  border-radius: 50%;
+  min-width: 80px;
+  font-size: 35px;
+  padding: 20px;
+  background-color: #2f2f2f;
+  color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.calc__body button:nth-child(4n) {
+  background-color: #ff9700;
+}
+
+.calc__body button:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+button.special__color {
+  color: #171717;
+  background-color: #a8a8a8;
+}
+
+/*-------------------------------------------------------------*/
+/*-----FOOTER--------------------------------------------------*/
+/*-------------------------------------------------------------*/
+.footer {
+  background-color: #000000;
+  padding: 25px 0px;
+}
+
+.footer__list {
+  border-radius: 5px;
+  padding: 25px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px 20px;
+}
+
+.footer__item {
+  text-align: center;
+  font-size: 25px;
+  color: white;
+}
+
+.footer__link {
+  font-size: 25px;
+  color: white;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+
+.footer__link:hover {
+  color: #fda000;
+}
