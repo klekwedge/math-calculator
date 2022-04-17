@@ -162,6 +162,18 @@ body {
   padding: 100px;
 }
 
+@media (max-width: 680px) {
+  .calc {
+    padding: 50px;
+  }
+}
+
+@media (max-width: 580px) {
+  .calc {
+    padding: 20px 10px;
+  }
+}
+
 .calc__container {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -186,35 +198,135 @@ body {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 40px 0px;
+  gap: 15px 15px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   margin: 0 auto;
   padding: 20px 40px 30px 40px;
   border: 5px;
 }
 
-.calc__body div {
-  margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  gap: 0px 20px;
+@media (max-width: 580px) {
+  .calc__body {
+    padding: 20px 10px;
+  }
 }
 
-.calc__body div:first-child button:not(:last-child) {
+@media (max-width: 440px) {
+  .calc__body {
+    padding: 20px 0px;
+  }
+}
+
+.calc__body button:nth-child(1),
+.calc__body button:nth-child(2),
+.calc__body button:nth-child(3) {
   color: #171717;
   background-color: #a8a8a8;
 }
 
-.calc__body div:first-child button:not(:last-child):hover {
+.calc__body button:nth-child(1):hover,
+.calc__body button:nth-child(2):hover,
+.calc__body button:nth-child(3):hover {
   background-color: #d3d3d3;
 }
 
-.calc__body div:last-child button:first-child {
+.calc__body button:nth-child(17) {
   visibility: hidden;
+}
+
+@media (max-width: 404px) {
+  .calc__body button:nth-child(17) {
+    display: none;
+  }
+  .calc__body button:nth-child(4) {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .calc__body button:nth-child(5) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .calc__body button:nth-child(6) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .calc__body button:nth-child(7) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .calc__body button:nth-child(8) {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .calc__body button:nth-child(9) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .calc__body button:nth-child(10) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .calc__body button:nth-child(11) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .calc__body button:nth-child(12) {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+  .calc__body button:nth-child(13) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .calc__body button:nth-child(14) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .calc__body button:nth-child(15) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .calc__body button:nth-child(16) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .calc__body button:nth-child(17) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .calc__body button:nth-child(18) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+  .calc__body button:nth-child(19) {
+    -webkit-box-ordinal-group: 5;
+        -ms-flex-order: 4;
+            order: 4;
+  }
+  .calc__body button:nth-child(20) {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
 }
 
 .calc__body button {
@@ -224,8 +336,8 @@ body {
   padding: 20px;
   background-color: #2f2f2f;
   color: white;
-  -webkit-transition: 0.4s;
-  transition: 0.4s;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
 }
 
 .calc__body button:hover {
@@ -240,6 +352,11 @@ body {
 .calc__body button:nth-child(4n):hover {
   background-color: #ffb140;
   color: white;
+}
+
+.calc__body button:active {
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
 }
 
 /*-------------------------------------------------------------*/

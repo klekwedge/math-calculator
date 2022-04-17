@@ -65,6 +65,12 @@ body {
 /*-------------------------------------------------------------*/
 .calc {
   padding: 100px;
+  @media (max-width: 680px) {
+    padding: 50px;
+  }
+  @media (max-width: 580px) {
+    padding: 20px 10px;
+  }
 }
 
 .calc__container {
@@ -84,20 +90,23 @@ body {
 
 .calc__body {
   display: inline-flex;
-  flex-direction: column;
-  gap: 40px 0px;
+  gap: 15px 15px;
+  justify-content: center;
+  flex-wrap: wrap;
   margin: 0 auto;
   padding: 20px 40px 30px 40px;
   border: 5px;
+  @media (max-width: 580px) {
+    padding: 20px 10px;
+  }
+  @media (max-width: 440px) {
+    padding: 20px 0px;
+  }
 }
 
-.calc__body div {
-  margin: 0 auto;
-  display: flex;
-  gap: 0px 20px;
-}
-
-.calc__body div:first-child button:not(:last-child) {
+.calc__body button:nth-child(1),
+.calc__body button:nth-child(2),
+.calc__body button:nth-child(3) {
   color: #171717;
   background-color: #a8a8a8;
 
@@ -106,8 +115,30 @@ body {
   }
 }
 
-.calc__body div:last-child button:first-child {
+.calc__body button:nth-child(17) {
   visibility: hidden;
+}
+
+@media (max-width: 404px) {
+  .calc__body button:nth-child(17) {
+    display: none;
+  }
+
+  .calc__body button {
+    @for $var from 4 to 21 {
+      &:nth-child(#{$var}) {
+        @if $var == 4 or $var == 8 or $var == 12 {
+          order: 2;
+        }
+        @else if $var <= 20 and $var!= 19{
+          order: 3;
+        } 
+        @else {
+          order: 4;
+        } 
+      }
+    }
+  }
 }
 
 .calc__body button {
@@ -123,7 +154,7 @@ body {
     color: #2f2f2f;
   }
 
-  transition: 0.4s;
+  transition: 0.1s;
 
   &:nth-child(4n) {
     background-color: #ff9700;
@@ -134,7 +165,7 @@ body {
   }
 
   &:active {
-    // transform: scale(0.8);
+    transform: scale(0.8);
   }
 }
 
@@ -171,7 +202,7 @@ body {
     text-align: center;
   }
 
-  &__close span{
+  &__close span {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -180,7 +211,7 @@ body {
   }
 }
 
-.material-icons-outlined{
+.material-icons-outlined {
   color: black;
 }
 /*-------------------------------------------------------------*/
