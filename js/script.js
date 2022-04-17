@@ -9,8 +9,8 @@ modalClose.addEventListener("click", () => {
   overlay.style.display = "none";
 });
 
-overlay.addEventListener("click", (e) => {
-  if (event.target !== modal) {
+overlay.addEventListener("click", (event) => {
+  if (event.target === overlay) {
     overlay.style.display = "none";
   }
 });
@@ -34,8 +34,9 @@ function checkResultLength() {
     if (+result.textContent % 1 === 0) {
       modalContent.textContent = "Внимание, слишком большое число!";
     } else {
-      modalContent.textContent =
-        `Дробная часть числа будет состоять не более, чем из ${resultMaxLength - 2} знаков`;
+      modalContent.textContent = `Дробная часть числа будет состоять не более, чем из ${
+        resultMaxLength - 2
+      } знаков`;
     }
     result.textContent = result.textContent.substring(0, resultMaxLength);
   }
