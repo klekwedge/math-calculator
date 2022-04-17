@@ -15,6 +15,12 @@ overlay.addEventListener("click", (event) => {
   }
 });
 
+document.addEventListener("keydown", (event) => {
+  if (event.code === "Escape" && overlay.style.display === "block") {
+    overlay.style.display = "none";
+  }
+});
+
 const result = document.querySelector(".calc__result");
 
 let num1;
@@ -51,14 +57,22 @@ function performNewOperation(dataAtribute) {
     num1 = +result.textContent;
     flag = false;
     typeTransaction = dataAtribute;
-  } else if (dataAtribute === "clear") {
-    result.textContent = "0";
-    num1 = 0;
-    num2 = 0;
+
+    if (dataAtribute === "sign") {
+      if (result.textContent.indexOf("-") === -1) {
+        result.textContent = "-" + result.textContent;
+      } else {
+        result.textContent = result.textContent.slice(1);
+      }
+    }
   } else if (dataAtribute === "float") {
     if (result.textContent.indexOf(".") === -1) {
       result.textContent += ".";
     }
+  } else if (dataAtribute === "clear") {
+    result.textContent = "0";
+    num1 = 0;
+    num2 = 0;
   } else if (dataAtribute === "equals") {
     num2 = +result.textContent;
     switch (typeTransaction) {
