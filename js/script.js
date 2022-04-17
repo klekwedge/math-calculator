@@ -8,14 +8,20 @@ let num2;
 let flag = true;
 let typeTransaction = "";
 
+let resultMaxLength = 14;
+
 const operationButtons = document.querySelectorAll("[data-operation]"),
   valueButtons = document.querySelectorAll("[data-value]");
 
 function checkResultLength() {
-  if (result.textContent.length > 16) {
-    // if (result % 1 == 0){
-    result.textContent = result.textContent.substring(0, 16);
-    // }
+  if (result.textContent.length > resultMaxLength) {
+    if (+result.textContent % 1 === 0) {
+      alert("Внимание, слишком большое число!");
+    } else {
+      alert("Округление");
+    }
+    console.log(result.textContent.substring(0, resultMaxLength));
+    result.textContent = result.textContent.substring(0, resultMaxLength);
   }
 }
 
@@ -69,7 +75,7 @@ valueButtons.forEach((valueButton) => {
       flag = true;
     }
 
-    if (result.textContent.length <= 14) {
+    if (result.textContent.length <= resultMaxLength) {
       result.textContent += valueButton.textContent;
     }
   });
