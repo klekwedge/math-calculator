@@ -11,63 +11,47 @@ let typeTransaction = "";
 const operationButtons = document.querySelectorAll("[data-operation]"),
   valueButtons = document.querySelectorAll("[data-value]");
 
-function performNewOperation(dataAtribute) {
-  switch (dataAtribute) {
-    case "clear":
-      result.textContent = "0";
-      break;
-    // case "sign-change":
-    //   if (result.textContent[0] === "-") {
-    //     result.textContent = result.textContent.slice(1);
-    //   } else {
-    //     result.textContent = "-" + result.textContent;
-    //   }
-    //   result.textContent = "0";
-    //   break;
-    case "addition":
-      num1 = +result.textContent;
-      flag = false;
-      typeTransaction = "addition";
-      break;
-    case "subtraction":
-      num1 = +result.textContent;
-      flag = false;
-      typeTransaction = "subtraction";
-      break;
-    case "multiplication":
-      num1 = +result.textContent;
-      flag = false;
-      typeTransaction = "multiplication";
-      break;
-    case "division":
-      num1 = +result.textContent;
-      flag = false;
-      typeTransaction = "division";
-      break;
-    case "equals":
-      num2 = +result.textContent;
-      switch (typeTransaction) {
-        case "subtraction":
-          result.textContent = num1 - num2;
-          break;
-        case "addition":
-          result.textContent = num1 + num2;
-          break;
-        case "multiplication":
-          result.textContent = num1 * num2;
-          break;
-        case "division":
-          result.textContent = num1 / num2;
-          if (result.textContent.length > 16) {
-            result.textContent = result.textContent.substring(0, 16);
-          }
-          break;
-      }
-
-      flag = false;
-      break;
+function checkResultLength() {
+  if (result.textContent.length > 16) {
+    // if (result % 1 == 0){
+    result.textContent = result.textContent.substring(0, 16);
+    // }
   }
 }
+
+function performNewOperation(dataAtribute) {
+  if (dataAtribute !== "clear" && dataAtribute !== "equals") {
+    num1 = +result.textContent;
+    flag = false;
+    typeTransaction = dataAtribute;
+  } else if (dataAtribute === "clear") {
+    result.textContent = "0";
+    num1 = 0;
+    num2 = 0;
+  } else if (dataAtribute === "equals") {
+    num2 = +result.textContent;
+    switch (typeTransaction) {
+      case "subtraction":
+        result.textContent = num1 - num2;
+        break;
+      case "addition":
+        result.textContent = num1 + num2;
+        break;
+      case "multiplication":
+        result.textContent = num1 * num2;
+        break;
+      case "division":
+        result.textContent = num1 / num2;
+        break;
+      case "remainder":
+        result.textContent = num1 % num2;
+        break;
+    }
+    checkResultLength();
+    flag = false;
+  }
+}
+
 operationButtons.forEach((valueButton) => {
   valueButton.addEventListener("click", () => {
     performNewOperation(event.target.dataset.operation);
