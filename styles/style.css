@@ -172,7 +172,7 @@ body {
           flex-direction: column;
   max-width: 460px;
   border-radius: 10px;
-  background-color: #000000;
+  background-color: black;
 }
 
 .calc__result {
@@ -204,6 +204,19 @@ body {
   gap: 0px 20px;
 }
 
+.calc__body div:first-child button:not(:last-child) {
+  color: #171717;
+  background-color: #a8a8a8;
+}
+
+.calc__body div:first-child button:not(:last-child):hover {
+  background-color: #d3d3d3;
+}
+
+.calc__body div:last-child button:first-child {
+  visibility: hidden;
+}
+
 .calc__body button {
   border-radius: 50%;
   min-width: 80px;
@@ -215,18 +228,18 @@ body {
   transition: 0.4s;
 }
 
+.calc__body button:hover {
+  background-color: #F9F9F9;
+  color: #2f2f2f;
+}
+
 .calc__body button:nth-child(4n) {
   background-color: #ff9700;
 }
 
-.calc__body button:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-}
-
-button.special__color {
-  color: #171717;
-  background-color: #a8a8a8;
+.calc__body button:nth-child(4n):hover {
+  background-color: #ffb140;
+  color: white;
 }
 
 /*-------------------------------------------------------------*/
