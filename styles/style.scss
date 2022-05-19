@@ -129,13 +129,11 @@ body {
       &:nth-child(#{$var}) {
         @if $var == 4 or $var == 8 or $var == 12 {
           order: 2;
-        }
-        @else if $var <= 20 and $var!= 19{
+        } @else if $var <= 20 and $var!= 19 {
           order: 3;
-        } 
-        @else {
+        } @else {
           order: 4;
-        } 
+        }
       }
     }
   }
